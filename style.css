@@ -5,13 +5,13 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #000; /* Must taust */
-  color: #fff; /* Valge tekst */
+  background-color: #f0f8ff; /* Hele sinine taust */
+  color: #000; /* Must tekst */
 }
 
 header {
-  background-color: #333; /* Tumehall menüü */
-  color: #fff;
+  background-color: #8ecae6; /* Helesinine menüü */
+  color: #023047; /* Tume tekst */
   padding: 1em 0;
   text-align: center;
 }
@@ -37,15 +37,23 @@ section {
 }
 
 #avaleht {
-  background-color: #222; /* Sügavam must */
+  background-color: #caf0f8; /* Heledam sinine */
 }
 
-#teenused, #galerii, #kontakt {
-  background-color: #111; /* Väga tume hall */
+#teenused {
+  background-color: #d4f1f4; /* Väga hele sinine */
+}
+
+#galerii {
+  background-color: #e5f4e7; /* Hele roheline */
+}
+
+#kontakt {
+  background-color: #f0f8ff; /* Hele sinine */
 }
 
 h1, h2 {
-  color: #fff;
+  color: #023047; /* Tume tekst */
 }
 
 .gallery {
@@ -56,7 +64,7 @@ h1, h2 {
 .gallery img {
   max-width: 30%;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 form {
@@ -71,24 +79,23 @@ form label {
 form input, form textarea, form button {
   margin-top: 0.5em;
   padding: 0.5em;
-  border: 1px solid #666;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #333;
-  color: #fff;
 }
 
 form button {
-  background-color: #555;
+  background-color: #8ecae6; /* Helesinine nupp */
+  color: #fff;
   cursor: pointer;
   border: none;
 }
 
 form button:hover {
-  background-color: #777;
+  background-color: #52b788; /* Heleroheline hover */
 }
 
 footer {
-  background-color: #333;
+  background-color: #023047; /* Tume sinine footer */
   color: #fff;
   text-align: center;
   padding: 1em 0;
