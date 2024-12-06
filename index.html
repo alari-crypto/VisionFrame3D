@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="et">
 <head>
@@ -6,16 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teenuse Tutvustus</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Näita ainult valitud sektsiooni
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.style.display = 'none');
+
+      const activeSection = document.getElementById(sectionId);
+      if (activeSection) activeSection.style.display = 'block';
+    }
+
+    // Näita ainult valitud galerii alamjaotust
+    function showGallery(type) {
+      document.getElementById('pildid').style.display = 'none';
+      document.getElementById('animatsioonid').style.display = 'none';
+
+      const activeSection = document.getElementById(type);
+      if (activeSection) activeSection.style.display = 'block';
+    }
+
+    // Näita ainult avalehte alguses
+    document.addEventListener('DOMContentLoaded', () => showSection('avaleht'));
+  </script>
 </head>
 <body>
   <header>
     <h1>Minu Teenused</h1>
     <nav>
       <ul>
-        <li><a href="#avaleht">Avaleht</a></li>
-        <li><a href="#teenused">Teenused</a></li>
-        <li><a href="#galerii">Galerii</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#" onclick="showSection('avaleht')">Avaleht</a></li>
+        <li><a href="#" onclick="showSection('teenused')">Teenused</a></li>
+        <li><a href="#" onclick="showSection('galerii')">Galerii</a></li>
+        <li><a href="#" onclick="showSection('kontakt')">Kontakt</a></li>
       </ul>
     </nav>
   </header>
@@ -25,7 +46,7 @@
     <p>Pakume kvaliteetset toodete kooste animeerimise teenust.</p>
   </section>
 
-  <section id="teenused">
+  <section id="teenused" style="display: none;">
     <h2>Meie Teenused</h2>
     <p>Tutvusta oma teenuseid siinkohal, näiteks:</p>
     <ul>
@@ -35,17 +56,39 @@
     </ul>
   </section>
 
-  <section id="galerii">
+  <section id="galerii" style="display: none;">
     <h2>Galerii</h2>
-    <p>Vaata meie tehtud töid:</p>
-    <div class="gallery">
-      <img src="images/example1.jpg" alt="Näidistöö 1">
-      <img src="images/example2.jpg" alt="Näidistöö 2">
-      <img src="images/example3.jpg" alt="Näidistöö 3">
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showGallery('pildid')">Pildid</a></li>
+        <li><a href="#" onclick="showGallery('animatsioonid')">Animatsioonid</a></li>
+      </ul>
+    </nav>
+
+    <div id="pildid" style="display: block;">
+      <h3>Pildid</h3>
+      <div class="gallery">
+        <img src="images/example1.jpg" alt="Pilt 1">
+        <img src="images/example2.jpg" alt="Pilt 2">
+        <img src="images/example3.jpg" alt="Pilt 3">
+      </div>
+    </div>
+
+    <div id="animatsioonid" style="display: none;">
+      <h3>Animatsioonid</h3>
+      <p>Vaata meie tehtud animatsioone:</p>
+      <video controls>
+        <source src="animations/example1.mp4" type="video/mp4">
+        Teie brauser ei toeta videot.
+      </video>
+      <video controls>
+        <source src="animations/example2.mp4" type="video/mp4">
+        Teie brauser ei toeta videot.
+      </video>
     </div>
   </section>
 
-  <section id="kontakt">
+  <section id="kontakt" style="display: none;">
     <h2>Kontakt</h2>
     <p>Võta meiega ühendust:</p>
     <form>
