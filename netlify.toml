@@ -1,0 +1,8 @@
+
+[[plugins]]
+  package = "@netlify/plugin-functions-core"
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
