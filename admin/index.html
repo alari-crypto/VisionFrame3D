@@ -1,12 +1,117 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="et">
 <head>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^2.0.0/dist/cms.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teenuse Tutvustus</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Näita ainult valitud sektsiooni
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.style.display = 'none');
+
+      const activeSection = document.getElementById(sectionId);
+      if (activeSection) activeSection.style.display = 'block';
+    }
+
+    // Näita ainult valitud galerii alamjaotust
+    function showGallery(type) {
+      document.getElementById('pildid').style.display = 'none';
+      document.getElementById('animatsioonid').style.display = 'none';
+
+      const activeGallery = document.getElementById(type);
+      if (activeGallery) activeGallery.style.display = 'block';
+    }
+
+    // Näita ainult avalehte alguses
+    document.addEventListener('DOMContentLoaded', () => {
+      showSection('avaleht');
+      showGallery('pildid');
+    });
+  </script>
 </head>
 <body>
-  <!-- Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <header>
+    <h1>Minu Teenused</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showSection('avaleht')">Avaleht</a></li>
+        <li><a href="#" onclick="showSection('teenused')">Teenused</a></li>
+        <li><a href="#" onclick="showSection('galerii')">Galerii</a></li>
+        <li><a href="#" onclick="showSection('kontakt')">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="avaleht">
+    <h2>Tere tulemast!</h2>
+    <p>Pakume kvaliteetset toodete kooste animeerimise teenust.</p>
+  </section>
+
+  <section id="teenused" style="display: none;">
+    <h2>Meie Teenused</h2>
+    <p>Tutvusta oma teenuseid siinkohal, näiteks:</p>
+    <ul>
+      <li>Toodete koosteanimeerimine</li>
+      <li>3D-visualisatsioon</li>
+      <li>Prototüüpide animatsioon</li>
+    </ul>
+  </section>
+
+  <section id="galerii" style="display: none;">
+    <h2>Galerii</h2>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showGallery('pildid')">Pildid</a></li>
+        <li><a href="#" onclick="showGallery('animatsioonid')">Animatsioonid</a></li>
+      </ul>
+    </nav>
+
+    <div id="pildid" style="display: block;">
+      <h3>Pildid</h3>
+      <div class="gallery">
+        <img src="images/pilt1.jpg" alt="Pilt 1">
+        <img src="images/pilt2.jpg" alt="Pilt 2">
+        <img src="images/pilt3.jpg" alt="Pilt 3">
+      </div>
+    </div>
+
+    <div id="animatsioonid" style="display: none;">
+      <h3>Animatsioonid</h3>
+      <p>Vaata meie tehtud animatsioone:</p>
+      <video controls>
+        <source src="videos/video1.mp4" type="video/mp4">
+        Teie brauser ei toeta videot.
+      </video>
+      <video controls>
+        <source src="videos/video2.mp4" type="video/mp4">
+        Teie brauser ei toeta videot.
+      </video>
+    </div>
+  </section>
+
+  <section id="kontakt" style="display: none;">
+    <h2>Kontakt</h2>
+    <form
+      action="https://formspree.io/f/mzzbwqoa"
+      method="POST"
+    >
+      <label for="name">Nimi:</label>
+      <input type="text" id="name" name="name" placeholder="Sisesta oma nimi" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Sisesta oma email" required>
+
+      <label for="message">Sõnum:</label>
+      <textarea id="message" name="message" placeholder="Kirjuta oma sõnum siia" required></textarea>
+
+      <button type="submit">Saada</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2024 Minu Teenused. Kõik õigused kaitstud.</p>
+  </footer>
 </body>
 </html>
