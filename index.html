@@ -15,8 +15,20 @@
       if (activeSection) activeSection.style.display = 'block';
     }
 
+    // Näita ainult valitud galerii alamjaotust
+    function showGallery(type) {
+      document.getElementById('pildid').style.display = 'none';
+      document.getElementById('animatsioonid').style.display = 'none';
+
+      const activeGallery = document.getElementById(type);
+      if (activeGallery) activeGallery.style.display = 'block';
+    }
+
     // Näita ainult avalehte alguses
-    document.addEventListener('DOMContentLoaded', () => showSection('avaleht'));
+    document.addEventListener('DOMContentLoaded', () => {
+      showSection('avaleht');
+      showGallery('pildid');
+    });
   </script>
 </head>
 <body>
@@ -49,10 +61,33 @@
 
   <section id="galerii" style="display: none;">
     <h2>Galerii</h2>
-    <div class="gallery">
-      <img src="images/example1.jpg" alt="Pilt 1">
-      <img src="images/example2.jpg" alt="Pilt 2">
-      <img src="images/example3.jpg" alt="Pilt 3">
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showGallery('pildid')">Pildid</a></li>
+        <li><a href="#" onclick="showGallery('animatsioonid')">Animatsioonid</a></li>
+      </ul>
+    </nav>
+
+    <div id="pildid" style="display: block;">
+      <h3>Pildid</h3>
+      <div class="gallery">
+        <img src="images/pilt1.jpg" alt="Pilt 1">
+        <img src="images/pilt2.jpg" alt="Pilt 2">
+        <img src="images/pilt3.jpg" alt="Pilt 3">
+      </div>
+    </div>
+
+    <div id="animatsioonid" style="display: none;">
+      <h3>Animatsioonid</h3>
+      <p>Vaata meie tehtud animatsioone:</p>
+      <video controls>
+        <source src="videos/video1.mp4" type="video/mp4">
+        Teie brauser ei toeta videot.
+      </video>
+      <video controls>
+        <source src="videos/video2.mp4" type="video/mp4">
+        Teie brauser ei toeta videot.
+      </video>
     </div>
   </section>
 
