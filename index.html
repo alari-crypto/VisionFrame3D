@@ -3,37 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teenuse Tutvustus</title>
+  <title>VisionFrame3D</title>
   <link rel="stylesheet" href="style.css">
   <script>
-    // Näita ainult valitud sektsiooni
     function showSection(sectionId) {
       const sections = document.querySelectorAll('section');
       sections.forEach(section => section.style.display = 'none');
-
       const activeSection = document.getElementById(sectionId);
       if (activeSection) activeSection.style.display = 'block';
     }
 
-    // Näita ainult valitud galerii alamjaotust
-    function showGallery(type) {
-      document.getElementById('pildid').style.display = 'none';
-      document.getElementById('animatsioonid').style.display = 'none';
-
-      const activeGallery = document.getElementById(type);
-      if (activeGallery) activeGallery.style.display = 'block';
-    }
-
-    // Näita ainult avalehte alguses
-    document.addEventListener('DOMContentLoaded', () => {
-      showSection('avaleht');
-      showGallery('pildid');
-    });
+    document.addEventListener('DOMContentLoaded', () => showSection('avaleht'));
   </script>
 </head>
 <body>
   <header>
-    <h1>Minu Teenused</h1>
+    <div class="logo">
+      <h1>VisionFrame3D</h1>
+    </div>
     <nav>
       <ul>
         <li><a href="#" onclick="showSection('avaleht')">Avaleht</a></li>
@@ -45,58 +32,43 @@
   </header>
 
   <section id="avaleht">
-    <h2>Tere tulemast!</h2>
-    <p>Pakume kvaliteetset toodete kooste animeerimise teenust.</p>
+    <div class="hero">
+      <h2>Tere tulemast VisionFrame3D lehele!</h2>
+      <p>Kvaliteetsed 3D-lahendused – animeerimine, modelleerimine ja visualiseerimine. Tutvu meie teenustega!</p>
+    </div>
   </section>
 
   <section id="teenused" style="display: none;">
     <h2>Meie Teenused</h2>
-    <p>Tutvusta oma teenuseid siinkohal, näiteks:</p>
-    <ul>
-      <li>Toodete koosteanimeerimine</li>
-      <li>3D-visualisatsioon</li>
-      <li>Prototüüpide animatsioon</li>
-    </ul>
+    <div class="services">
+      <div class="service">
+        <h3>Animeerimine</h3>
+        <p>Loo realistlikke liikuvaid lahendusi oma toodetele ja projektidele.</p>
+      </div>
+      <div class="service">
+        <h3>Modelleerimine</h3>
+        <p>Kõrgekvaliteediline 3D-modelleerimine vastavalt sinu vajadustele.</p>
+      </div>
+      <div class="service">
+        <h3>Visualiseerimine</h3>
+        <p>Esitle oma ideid ja projekte detailsete 3D-visualisatsioonidega.</p>
+      </div>
+    </div>
   </section>
 
   <section id="galerii" style="display: none;">
     <h2>Galerii</h2>
-    <nav>
-      <ul>
-        <li><a href="#" onclick="showGallery('pildid')">Pildid</a></li>
-        <li><a href="#" onclick="showGallery('animatsioonid')">Animatsioonid</a></li>
-      </ul>
-    </nav>
-
-    <div id="pildid" style="display: block;">
-      <h3>Pildid</h3>
-      <div class="gallery">
-        <img src="images/pilt1.jpg" alt="Pilt 1">
-        <img src="images/pilt2.jpg" alt="Pilt 2">
-        <img src="images/pilt3.jpg" alt="Pilt 3">
-      </div>
-    </div>
-
-    <div id="animatsioonid" style="display: none;">
-      <h3>Animatsioonid</h3>
-      <p>Vaata meie tehtud animatsioone:</p>
-      <video controls>
-        <source src="videos/video1.mp4" type="video/mp4">
-        Teie brauser ei toeta videot.
-      </video>
-      <video controls>
-        <source src="videos/video2.mp4" type="video/mp4">
-        Teie brauser ei toeta videot.
-      </video>
+    <p>Siin on mõned meie tehtud tööd:</p>
+    <div class="gallery">
+      <img src="images/example1.jpg" alt="Näidistöö 1">
+      <img src="images/example2.jpg" alt="Näidistöö 2">
+      <img src="images/example3.jpg" alt="Näidistöö 3">
     </div>
   </section>
 
   <section id="kontakt" style="display: none;">
     <h2>Kontakt</h2>
-    <form
-      action="https://formspree.io/f/mzzbwqoa"
-      method="POST"
-    >
+    <form action="https://formspree.io/f/mzzbwqoa" method="POST">
       <label for="name">Nimi:</label>
       <input type="text" id="name" name="name" placeholder="Sisesta oma nimi" required>
 
@@ -108,10 +80,11 @@
 
       <button type="submit">Saada</button>
     </form>
+    <p>Email: alari@visionframe.eu</p>
   </section>
 
   <footer>
-    <p>© 2024 Minu Teenused. Kõik õigused kaitstud.</p>
+    <p>© 2024 VisionFrame3D. Kõik õigused kaitstud.</p>
   </footer>
 </body>
 </html>
